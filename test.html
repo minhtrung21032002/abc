@@ -1,0 +1,1006 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+
+<div id="i4orp" class="row sectionBlockLayout text-start" style="display: flex; flex-wrap: wrap; margin: 0; min-height: auto; padding: 8px;">
+  <div id="icc1h" class="container" style="padding: 0; display: flex; flex-wrap: wrap;">
+    <div class="col-lg-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word;">
+      <!-- {% include 'entity_list' key: 'All testing_from_sharepoints (3)' %} {% comment %} Fetch and display data from Dataverse table. {% endcomment %} {% fetchxml resultVariable %}
+      <fetch mapping="logical">
+        <entity name="cr7d0_name">
+          <attribute name="cr7d0_title"></attribute>
+          <attribute name="cr7d0_position"></attribute>
+        
+        </entity>
+      </fetch>
+      {% endfetchxml %} {% for entityVariable in resultVariable.results.entities %}
+      <input type="checkbox" id="{{ entityVariable.cr7d0_title }}" name="{{ entityVariable.cr7d0_title }}" value="{{ entityVariable.cr7d0_title }}">
+      <label for="{{ entityVariable.cr7d0_title }}"> {{ entityVariable.cr7d0_position }}</label><br>
+      {% endfor %} -->
+
+      <!-- Question 1 -->
+      <!-- Fetch positions from sharepoint lists -->
+      <form id="form-submit">
+        <h1>Common Information</h1>
+    
+        <div class="form-group">
+            <label for="q2"><span class="index-span">2. </span>Date available *</label><br>
+            <input type="text" id="datepicker-dateAvailable" name="q2"><br>
+            <div id="error-message-q2" class="error"></div>
+        </div>
+    
+        <div class="form-group">
+            <label for="q3"><span class="index-span">3. </span>Salary expected (HKD) *</label><br>
+            <input type="text" id="q3" name="q3"><br>
+            <div id="error-message-q3" class="error"></div>
+        </div>
+    
+        <h1>Personal Particulars</h1>
+    
+        <div class="form-group">
+            <label for="q4"><span class="index-span">4. </span>Chinese Name *</label><br>
+            <input type="text" id="q4" name="q4"><br>
+            <div id="error-message-q4" class="error"></div>
+        </div>
+    
+        <div class="form-group">
+            <label for="q5"><span class="index-span">5. </span>English Name *</label><br>
+            <input type="text" id="q5" name="q5"><br>
+            <div id="error-message-q5" class="error"></div>
+        </div>
+    
+        <div class="form-group">
+            <label for="q6"><span class="index-span">6. </span>Date of Birth *</label><br>
+            <input type="text" id="datepicker-dateOfBirth" name="q6" placeholder="M/d/yyyy"><br>
+            <div id="error-message-q6" class="error"></div>
+        </div>
+    
+        <div class="form-group">
+            <label for="q7"><span class="index-span">7. </span>HKID No. *</label><br>
+            <input type="text" id="q7" name="q7" placeholder="Sample: A123456(7)"><br>
+            <div id="error-message-q7" class="error"></div>
+        </div>
+    
+        <div class="form-group">
+            <span class="index-span">8. </span><label>Hong Kong Permanent Resident? *</label><br>
+            <input type="radio" id="q8Yes" name="q8" value="Yes">
+            <label for="q8Yes">Yes</label><br>
+            <input type="radio" id="q8No" name="q8" value="No">
+            <label for="q8No">No</label><br>
+            <div id="error-message-q8" class="error"></div>
+        </div>
+    
+        <div class="form-group">
+            <label for="q9"><span class="index-span">9. </span>Home address</label><br>
+            <input type="text" id="q9" name="q9"><br>
+            <div id="error-message-q9" class="error"></div>
+        </div>
+    
+        <div class="form-group">
+            <label for="q10"><span class="index-span">10. </span>E-mail address</label><br>
+            <input type="email" id="q10" name="q10"><br>
+            <div id="error-message-q10" class="error"></div>
+        </div>
+    
+        <div class="form-group">
+            <label for="q11"><span class="index-span">11. </span>Tel No.</label><br>
+            <input type="tel" id="q11" name="q11"><br>
+            <div id="error-message-q11" class="error"></div>
+        </div>
+    
+        <div class="form-group">
+            <label for="q12"><span class="index-span">12. </span>Mobile No. *</label><br>
+            <input type="tel" id="q12" name="q12" class="error-mobile"><br>
+            <div id="error-message-q12" class="error"></div>
+        </div>
+    
+        <div class="form-group-branch-experience" data-branch="experience-1">
+    
+            <div class="form-group-branch-experience-question">
+                <label><span class="index-span">13. </span>Do you want to provide <span class ="index-span-group">1st </span> work experience information? *</label><br>
+                <input type="radio" id="q13Yes" name="q13" value="Yes">
+                <label for="q13Yes">Yes</label><br>
+                <input type="radio" id="q13No" name="q13" value="No">
+                <label for="q13No">No</label><br>
+                <div id="error-message-q14" class="error"></div>
+            </div>
+    
+            <div class="form-group-branch-experience-yes" style="display:none;">
+                <h1>Work experience 1<span class ="index-span-group"></span></h1>
+    
+                <div class="form-group">
+                    <label><span class="index-span"></span>Name of company 1<span class ="index-span-group"></span> *</label><br>
+                    <input type="text"><br>
+                    <div class="error"></div>
+                </div>
+    
+                <div class="form-group">
+                    <label><span class="index-span"></span>Position 1<span class ="index-span-group"></span> *</label><br>
+                    <input type="text"><br>
+                    <div class="error"></div>
+                </div>
+    
+                <div class="form-group">
+                    <label><span class="index-span"></span>Monthly basic salary 1<span class ="index-span-group"></span> *</label><br>
+                    <input type="text"><br>
+                    <div class="error"></div>
+                </div>
+
+                <div class="form-group">
+                  <label><span class="index-span"></span>From 1<span class ="index-span-group"></span> *</label><br>
+                  <input type="text"><br>
+                  <div class="error"></div>
+                </div>
+  
+              <div class="form-group">
+                <label><span class="index-span"></span>To 1<span class ="index-span-group"></span> *</label><br>
+                <input type="text"><br>
+                <div class="error"></div>
+              </div>
+  
+              <div class="form-group">
+                <label><span class="index-span"></span>Reason for leaving 1<span class ="index-span-group"></span> *</label><br>
+                <input type="text"><br>
+                <div class="error"></div>
+              </div>
+    
+                <div class="form-group">
+                    <label><span class="index-span"></span>Do you want to provide work experience 2<span class ="index-span-group"></span> *</label><br>
+                    <input type="text"><br>
+                    <div class="error"></div>
+                </div>
+            </div>
+
+            <div class="form-group-branch-experience-template" style="display:none;">
+              <h1>Work experience<span class ="index-span-group"></span></h1>
+  
+              <div class="form-group">
+                  <label><span class="index-span"></span>Name of company <span class ="index-span-group"></span> *</label><br>
+                  <input type="text"><br>
+                  <div class="error"></div>
+              </div>
+  
+              <div class="form-group">
+                  <label><span class="index-span"></span>Position <span class ="index-span-group"></span> *</label><br>
+                  <input type="text"><br>
+                  <div class="error"></div>
+              </div>
+  
+              <div class="form-group">
+                  <label><span class="index-span"></span>Monthly basic salary <span class ="index-span-group"></span> *</label><br>
+                  <input type="text"><br>
+                  <div class="error"></div>
+              </div>
+
+              <div class="form-group">
+                <label><span class="index-span"></span>From <span class ="index-span-group"></span> *</label><br>
+                <input type="text"><br>
+                <div class="error"></div>
+            </div>
+
+            <div class="form-group">
+              <label><span class="index-span"></span>To <span class ="index-span-group"></span> *</label><br>
+              <input type="text"><br>
+              <div class="error"></div>
+          </div>
+
+          <div class="form-group">
+            <label><span class="index-span"></span>Reason for leaving <span class ="index-span-group"></span> *</label><br>
+            <input type="text"><br>
+            <div class="error"></div>
+           </div>
+
+  
+              <div class="form-group">
+                  <label><span class="index-span"></span>Do you want to provide work experience <span class ="index-span-group"></span> *</label><br>
+                  <input type="text"><br>
+                  <div class="error"></div>
+              </div>
+            </div>
+    
+            <div class="form-group-branch-experience-no" style="display:none;">
+                <!-- <div class="form-group">
+                    <label><span class="index-span"></span>Reason for leaving 1 *</label><br>
+                    <input type="text"><br>
+                    <div class="error"></div>
+                </div>
+                <div class="form-group">
+                    <label><span class="index-span"></span>Reason for leaving 1 *</label><br>
+                    <input type="text"><br>
+                    <div class="error"></div>
+                </div> -->
+            </div>
+    
+            <div class="form-group-branch-experience-subsequent-data" style="display:none;">
+              <div class="form-group-branch-secuirty-permit" data-branch="secuirty-permit">
+
+                <div class="form-group-branch-secuirty-permit-question" >
+                  <h1>License/Permit - Security Personnel Permit (Category B)</h1>
+                  <div class="form-group">
+                    <label><span class="index-span"></span>Do you have Security personnel permit?<span class ="index-span-group"> </span> </label><br>
+                    <input type="radio" value="Yes">
+                    <label >Yes</label><br>
+                    <input type="radio"  value="No">
+                    <label >No</label><br>
+                  </div>
+                </div>
+
+
+                <div class="form-group-branch-secuirty-permit-yes" style="display:none;">
+                    
+                    <div class="form-group">
+                      <label><span class="index-span"></span>Obtained</label><br>
+                      <input type="text"><br>
+                      <div class="error"></div>
+                  </div>
+                  <div class="form-group">
+                      <label><span class="index-span"></span>Issue Date of Spp</label><br>
+                      <input type="text"><br>
+                      <div class="error"></div>
+                  </div>
+                  <div class="form-group">
+                      <label><span class="index-span"></span>Exp. Date of Spp</label><br>
+                      <input type="text"><br>
+                      <div class="error"></div>
+                  </div>
+
+                </div>
+
+                <div class="form-group-branch-secuirty-permit-no" style="display:none;">
+
+                </div>
+                
+                <div class="form-group-branch-secuirty-permit-subsequent-data" style="display:none;">
+               
+                    <div class="form-group-branch-qas" data-branch="qas" >
+                        <div class ="form-group-branch-qas-question" style="display:none;">
+                          <h1>License/Permit - QAS Certificate</h1>
+                          <div class="form-group">
+                            <label><span class="index-span"></span>Do you have QAS certificate?<span class ="index-span-group"> </span> </label><br>
+                            <input type="radio" value="Yes">
+                            <label >Yes</label><br>
+                            <input type="radio"  value="No">
+                            <label >No</label><br>
+                          </div>
+
+                        </div>
+                        <div class ="form-group-branch-qas-yes" style="display:none;">
+                          <div class="form-group">
+                            <label><span class="index-span"></span>Issue Date of QAS<span class="index-span-group"></span> *</label><br>
+                            <input type="text"><br>
+                            <div class="error"></div>
+                        </div>
+                        </div>
+                        <div class ="form-group-branch-qas-no" style="display:none;">
+                          
+                        </div>
+                        <div class ="form-group-branch-qas-subsequent-data" style="display:none;">
+                          <div class="form-group-branch-green-card" data-branch="green-card" >
+                            <div class ="form-group-branch-green-card-question" style="display:none;">
+                              <h1>License/Permit - Safety Card (Green Card)</h1>
+                              <div class="form-group">
+                                <label><span class="index-span"></span>Do you have Safety card (Green card)?<span class ="index-span-group"> </span> </label><br>
+                                <input type="radio" value="Yes">
+                                <label >Yes</label><br>
+                                <input type="radio"  value="No">
+                                <label >No</label><br>
+                              </div>
+
+                            </div>
+                            <div class ="form-group-branch-green-card-yes" style="display:none;">
+                             
+                              <div class="form-group">
+                                <label><span class="index-span"></span>Issue Date of SC<span class="index-span-group"></span> *</label><br>
+                                <input type="text"><br>
+                                <div class="error"></div>
+
+                              </div>
+                   
+                              <div class="form-group">
+                                <label><span class="index-span"></span>  Exp. Date of SC<span class="index-span-group"></span> *</label><br>
+                                <input type="text"><br>
+                                <div class="error"></div>
+  
+                              </div>
+                            </div>
+                            <div class ="form-group-branch-green-card-no" style="display:none;">
+
+                            </div>
+                            <div class ="form-group-branch-green-card-subsequent-data" style="display:none;">
+                              <div class="form-group-branch-pmp" data-branch="pmp">
+                                <div class="form-group-branch-pmp-question" style="display:none;">
+                                  <h1>PMP License</h1>
+                                  <div class="form-group">
+                                    <label><span class="index-span"></span>Do you have Cert. of registration of electrical worker?<span class ="index-span-group"> </span> </label><br>
+                                    <input type="radio" value="Yes">
+                                    <label >Yes</label><br>
+                                    <input type="radio"  value="No">
+                                    <label >No</label><br>
+                                  </div>
+                                </div>
+
+                                <div class="form-group-branch-pmp-yes" style="display:none;">
+                                  <div class="form-group">
+                                    <label><span class="index-span"></span>Category of PMP<span class="index-span-group"></span> *</label><br>
+                                    <input type="text"><br>
+                                    <div class="error"></div>
+      
+                                  </div>
+                                  <div class="form-group">
+                                    <label><span class="index-span"></span>Issue Date of PMP<span class="index-span-group"></span> *</label><br>
+                                    <input type="text"><br>
+                                    <div class="error"></div>
+      
+                                  </div>
+                                  <div class="form-group">
+                                    <label><span class="index-span"></span>Exp. Date of PMP<span class="index-span-group"></span> *</label><br>
+                                    <input type="text"><br>
+                                    <div class="error"></div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group-branch-pmp-no" style="display:none;">
+                                  
+                                </div>
+
+                                <div class="form-group-branch-pmp-subsequent-data" style="display:none;">
+                                      <div class ="form-group-branch-certificate-electrical-worker" data-branch="certificate-electrical-worker">
+                                        <div class ="form-group-branch-certificate-electrical-worker-question" style="display: none;">
+                                          <h1>Certificate of Registration of Electrical Worker</h1>
+                                          <div class="form-group">
+                                            <label><span class="index-span"></span>Do you have Cert. of registration of electrical worker?<span class ="index-span-group"> </span> </label><br>
+                                            <input type="radio" value="Yes">
+                                            <label >Yes</label><br>
+                                            <input type="radio"  value="No">
+                                            <label >No</label><br>
+
+                                          </div>
+
+                                        
+
+                                        </div>
+
+                                        <div class ="form-group-branch-certificate-electrical-worker-yes" style="display: none;">
+                                          <div class="form-group">
+                                            <label><span class="index-span"></span>Category of CREW<span class="index-span-group"></span> *</label><br>
+                                            <input type="text"><br>
+                                            <div class="error"></div>
+                                          </div>
+
+                                          <div class="form-group">
+                                            <label><span class="index-span"></span>Issue Date of CREW<span class="index-span-group"></span> *</label><br>
+                                            <input type="text"><br>
+                                            <div class="error"></div>
+                                          </div>
+
+                                          <div class="form-group">
+                                            <label><span class="index-span"></span>Exp. Date of CREW<span class="index-span-group"></span> *</label><br>
+                                            <input type="text"><br>
+                                            <div class="error"></div>
+                                          </div>
+                                        </div>
+
+                                      
+                                        <div class ="form-group-branch-certificate-electrical-worker-no" style="display: none;">
+
+                                        </div>
+
+                                       
+                                        <div class = "form-group-branch-certificate-electrical-worker-subsequent-data" style="display:none;" >
+                                          <div class ="form-group-branch-common1" data-branch="common1">
+                                            <div class="form-group-branch-common1-question" style="display: none;">
+                                                <h1>License/Permit - Others</h1>
+                                                <textarea>
+                                                    
+                                                </textarea>
+                                                  <div class="form-group-branch-education-template" style="display:none;">
+                                                    <h1>Education Background - <span class ="index-span-group"></span></h1>
+                                        
+                                                    <div class="form-group">
+                                                        <label><span class="index-span"></span>Name of School/Institute</label><br>
+                                                        <input type="text"><br>
+                                                        <div class="error"></div>
+                                                    </div>
+                                        
+                                                    <div class="form-group">
+                                                        <label><span class="index-span"></span>From</label><br>
+                                                        <input type="text"><br>
+                                                        <div class="error"></div>
+                                                    </div>
+                                        
+                                                    <div class="form-group">
+                                                        <label><span class="index-span"></span>To</label><br>
+                                                        <input type="text"><br>
+                                                        <div class="error"></div>
+                                                    </div>
+                                        
+                                                    <div class="form-group">
+                                                        <label><span class="index-span"></span>Major Subject & Level Attained</label><br>
+                                                        <input type="text"><br>
+                                                        <div class="error"></div>
+                                                    </div>
+                                                  </div>
+
+                                                  <div class="form-group-branch-qualification-template" style="display:none;">
+                                                    <h1>Other Qualification Attained - <span class ="index-span-group"></span></h1>
+                                        
+                                                    <div class="form-group">
+                                                        <label><span class="index-span"></span>Organization</label><br>
+                                                        <input type="text"><br>
+                                                        <div class="error"></div>
+                                                    </div>
+                                        
+                                                    <div class="form-group">
+                                                        <label><span class="index-span"></span>Course Name</label><br>
+                                                        <input type="text"><br>
+                                                        <div class="error"></div>
+                                                    </div>
+                                        
+                                                    <div class="form-group">
+                                                        <label><span class="index-span"></span>From</label><br>
+                                                        <input type="text"><br>
+                                                        <div class="error"></div>
+                                                    </div>
+                                        
+                                                    <div class="form-group">
+                                                        <label><span class="index-span"></span>To</label><br>
+                                                        <input type="text"><br>
+                                                        <div class="error"></div>
+                                                    </div>
+                                                  </div>
+
+                                                  
+                                              </div>
+                                                
+                                            </div>
+
+                                            <div class="form-group-branch-common1-yes" style="display: none;">
+
+                                            </div>
+
+                                            <div class="form-group-branch-common1-no"style="display: none;" >
+
+                                            </div>
+
+                                            <div class="form-group-branch-common1-subsequent-data"style="display: none;" >
+
+                                            </div>
+                                          </div>
+
+                                          </div>
+                                        </div>
+
+                                      </div>
+
+
+
+
+
+
+
+
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                    </div>   
+                </div>
+
+              </div>
+            </div>
+
+
+             
+              
+              
+          
+              
+           
+              <!-- <h1>PMP License</h1>
+              <div class="form-group">
+                  <label><span class="index-span"></span>Do you have Cert. of registration of electrical worker?<span class="index-span-group"></span> *</label><br>
+                  <input type="text"><br>
+                  <div class="error"></div>
+              </div>
+              
+              <div class="form-group">
+                  <label><span class="index-span"></span>Category of PMP<span class="index-span-group"></span> *</label><br>
+                  <input type="text"><br>
+                  <div class="error"></div>
+              </div>
+              
+              <div class="form-group">
+                  <label><span class="index-span"></span>Issue Date of PMP<span class="index-span-group"></span> *</label><br>
+                  <input type="text"><br>
+                  <div class="error"></div>
+              </div>
+              
+              <div class="form-group">
+                  <label><span class="index-span"></span>Exp. Date of PMP<span class="index-span-group"></span> *</label><br>
+                  <input type="text"><br>
+                  <div class="error"></div>
+              </div>
+
+              <h1>Certificate of Registration of Electrical Worker</h1>
+              <div class="form-group">
+                  <label><span class="index-span"></span>Do you have Cert. of registration of electrical worker?<span class="index-span-group"></span> *</label><br>
+                  <input type="text"><br>
+                  <div class="error"></div>
+              </div>
+              
+              <div class="form-group">
+                  <label><span class="index-span"></span>Category of CREW<span class="index-span-group"></span> *</label><br>
+                  <input type="text"><br>
+                  <div class="error"></div>
+              </div>
+
+              <div class="form-group">
+                <label><span class="index-span"></span>Issue Date of CREW<span class="index-span-group"></span> *</label><br>
+                <input type="text"><br>
+                <div class="error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label><span class="index-span"></span>Exp. Date of CREW<span class="index-span-group"></span> *</label><br>
+                <input type="text"><br>
+                <div class="error"></div>
+            </div> -->
+            
+              
+    
+                <!-- Continue with similar structure for remaining fields -->
+          
+        </div>
+
+    </form>
+    
+    
+    </div>
+  </div>
+</div>
+
+<!-- 
+Date picker flatpickr -->
+
+<script>
+  var picker1 = new Pikaday({ field: document.getElementById('datepicker-dateAvailable') });
+  var picker2 = new Pikaday({ field: document.getElementById('datepicker-dateOfBirth') });
+</script>
+
+<script>
+  $(document).ready(function() {
+
+    function validateDOB($field) {
+      const dobPattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/; // Adjust pattern as needed
+      const $errorMessage = $field.siblings('.error');
+
+      if (!dobPattern.test($field.val().trim())) {
+        $errorMessage.text('Please input date in format M/d/yyyy.');
+        $field.addClass('error');
+        return false;
+      } else {
+        $errorMessage.text('');
+        $field.removeClass('error');
+        return true;
+      }
+    }
+
+    function validatePhone($field) {
+      const phonePattern = /^[0-9]{10}$/; // Adjust pattern as needed
+      const $errorMessage = $field.siblings('.error');
+
+      if (!phonePattern.test($field.val().trim())) {
+        $errorMessage.text('Please enter a valid phone number.');
+        $field.addClass('error');
+        return false;
+      } else {
+        $errorMessage.text('');
+        $field.removeClass('error');
+        return true;
+      }
+    }
+
+  
+
+    // // Event listener for form submission
+    // $('#form-submit').on('submit', function(event) {
+    //   let isValid = true;
+
+    //   // Validate all required fields
+    //   $('.form-group').each(function() {
+    //     const $field = $(this).find('input, select');
+    //     const $label = $(this).find('label');
+    //     const isRequired = $label.text().includes('*');
+
+    //     if (isRequired) {
+    //       if ($field.attr('id') === 'q7') { // Date of Birth
+    //         isValid = validateDOB($field) && isValid;
+    //       } else if ($field.attr('id') === 'q12' || $field.attr('id') === 'q13') { // Phone Number
+    //         isValid = validatePhone($field) && isValid;
+    //       } else {
+    //         if ($field.val().trim() === '') {
+    //           $field.siblings('.error').text($label.text() + ' is required.');
+    //           $field.addClass('error');
+    //           isValid = false;
+    //         }
+    //       }
+    //     }
+    //   });
+
+    //   if (!isValid) {
+    //     event.preventDefault(); // Prevent form submission if validation fails
+    //   }
+    // });
+
+    // Add blur event listeners to each input
+    $('.form-group input').each(function() {
+      const $field = $(this);
+      let interacted = false;
+
+      $field.on('blur', function() {
+        if (!interacted) {
+          interacted = true;
+        }
+
+        if (interacted) {
+          const $label = $(this).siblings('label');
+          const isRequired = $label.text().includes('*');
+
+          if (isRequired) {
+            if ($field.attr('id') === 'q7') { // Date of Birth
+              validateDOB($field);
+            } else if ($field.attr('id') === 'q12' || $field.attr('id') === 'q13') { // Phone Number
+              validatePhone($field);
+            } else {
+              if ($field.val().trim() === '') {
+                console.log("Reach error empty")
+                $field.siblings('.error').text($label.text() + ' is required.');
+                $field.addClass('error');
+              } else {
+                $field.siblings('.error').text('');
+                $field.removeClass('error');
+              }
+            }
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function() {
+       let branchCounter = 1;  // Initialize a counter for unique branch names
+      let returnIndexFromSubBranch;
+
+      function handleCreateExpansion(yesBranch,currentIndex, templateClass,subsequentDataClass){
+        // let branchCounter = 1;  // Initialize a counter for unique branch names
+        $(yesBranch).on('blur', 'input[type="text"]', function() {
+
+        const lastTextInput = $(yesBranch + ' input[type="text"]').last();
+        
+        // Check if the value of the last text input is "No"
+        if (lastTextInput.val().toLowerCase() === "yes") {
+              branchCounter++;
+              console.log(yesBranch)
+              const trimYesBranch = yesBranch.replace('.','');
+              console.log(trimYesBranch);
+              const existingYesBranch = $(templateClass).clone().removeAttr('style');
+              const newBranchName = `${trimYesBranch}-sub-branch-${branchCounter}`;
+                console.log("New branch name:", newBranchName);
+
+                existingYesBranch.removeClass().addClass(newBranchName);
+                // Select the last span with the class 'index-span'
+                const lastIndexSpan = $(yesBranch + ' .index-span').last();
+                console.log(lastIndexSpan);
+
+                // Parse and log the index from the selected span
+                let lastIndexSpanValue = parseInt(lastIndexSpan.text(), 10);
+                console.log(lastIndexSpanValue);
+
+
+                existingYesBranch.find('h1 .index-span-group').text(' '+ branchCounter);
+
+                existingYesBranch.find('.form-group').each(function(index) {
+                let questionNumber = lastIndexSpanValue + index + 1;
+                returnIndexFromSubBranch = questionNumber +1;
+                  // Update the question number, label text, and input attributes
+                  $(this).find('.index-span').text(questionNumber + ': ');
+                 // Check if this is the last form-group
+                  if ($(this).is(':last-child')) {
+                      // Set the value for the last form-group
+                      $(this).find('.index-span-group').text(branchCounter + 1);
+                  } else {
+            
+
+                      $(this).find('.index-span-group').text(branchCounter);
+                  }
+                  // $(this).find('label').text(currentIndex + '. ' + $(this).find('label').text().replace(/^\d+\.\s*/, ''));
+                  $(this).find('input').attr('id', 'q' + questionNumber).attr('name', 'q' + questionNumber);
+                  $(this).find('.error').attr('id', 'error-message-q' + questionNumber);
+            
+                  
+              });
+
+              const lastFormGroup = $(yesBranch).find('.form-group:last');
+              
+              // Append the cloned branch to the parent "Yes" branch
+              lastFormGroup.after(existingYesBranch);
+
+        }else if(lastTextInput.val().toLowerCase() === "no"){
+          console.log("before update from sub-branch" + returnIndexFromSubBranch);
+          updateSubsequentDataIndicesAndShow(returnIndexFromSubBranch - 1, subsequentDataClass);
+        }
+        })
+   
+    
+         
+      }
+      function clearExpansion(yesBranch){
+        //Clear input of question
+
+        
+      
+        $(yesBranch).find('.form-group:last').find('input[type="text"]').val('');
+          // Find parent elements with a specific class
+          $('.form-group-branch-experience-yes').each(function() {
+        
+              var $parent = $(this);
+              var $lastFormGroup = $parent.find('.form-group:last');
+              console.log($lastFormGroup);
+              // Clear the value of all input fields within this '.form-group'
+              $lastFormGroup.find('input[type="text"]').val('');
+              // Find and remove child elements with a class ending with the specified suffix
+               
+              // Remove all sub-branches
+              for (var i = branchCounter; i >= 1 ; i--) {
+      
+                  subBranchSuffix = `-sub-branch-${i}`;
+                  $parent.find(`div[class$="${subBranchSuffix}"]`).remove();
+                  console.log(branchCounter);
+                  branchCounter--;
+              }
+              branchCounter++
+          });
+
+       // Define the class name you want to target
+
+
+        // // Select all elements with the specified class and remove the last one
+        // $(`${yesBranch}`).last().remove();
+
+
+      }
+      function handleCloneForm(templateName, listOfValues, location, destination) {
+            const templateClass = `${location} .form-group-branch-${templateName}-template`;
+            const template = $(templateClass);
+
+            if (template.length === 0) {
+                console.error(`Template not found for ${templateClass}`);
+                return;
+            }
+
+            listOfValues.forEach((value, index) => {
+                const clonedTemplate = template.clone().removeClass(`form-group-branch-${templateName}-template`).show();
+
+                // Update the index-span-group with the current value
+                clonedTemplate.find('.index-span-group').text(value);
+
+                // Append the cloned template to the specified destination
+                $(destination).append(clonedTemplate);
+            });
+
+            // Optionally, remove the original template
+            template.remove();
+        }
+
+       
+        function generateRadioTable(data, destination) {
+              let tableHtml = '<tbody>';
+
+              data.forEach((item, rowIndex) => {
+                  tableHtml += '<tr>';
+                  tableHtml += `<td>${item.row}</td>`;
+                  
+                  item.values.forEach((value, colIndex) => {
+                      tableHtml += `
+                          <td>
+                              <input type="radio" name="row${rowIndex + 1}" value="${value}">
+                              ${value}
+                          </td>`;
+                  });
+
+                  tableHtml += '</tr>';
+              });
+
+              tableHtml += '</tbody>';
+
+              // Insert the generated table into the specified destination
+              $(destination).append(tableHtml);
+
+              
+          }
+
+
+
+
+      function handleBranchChange(branchName, extendBranch) {
+          //Hide all items in subsequent-data
+          const yesClass = `.form-group-branch-${branchName}-yes`;
+          const noClass = `.form-group-branch-${branchName}-no`;
+          const subsequentDataClass = `.form-group-branch-${branchName}-subsequent-data`
+          const questionClass = `.form-group-branch-${branchName}-question`
+          const templateClass = `.form-group-branch-${branchName}-template`
+          // hide all element after this branch name form-group-branch....
+   
+          // Handle the change event for branch questions
+          $(`${questionClass} input[type="radio"]`).on('change', function() {
+              const inputName = $(this).attr('name');
+              const currentQuestionIndex = getCurrentQuestionIndex(questionClass);
+  
+              let nextIndex;
+              if ($(this).val() === 'Yes') {
+                  $(yesClass).show();
+                  $(noClass).hide();
+                  $(subsequentDataClass).hide();
+                  // Update indices for the 'Yes' branch
+                  nextIndex = updateIndices(currentQuestionIndex, yesClass);
+
+                  // updateSubsequentDataIndicesAndShow(nextIndex, subsequentDataClass);
+                  if(extendBranch === true){
+                    // hideSubsequentData(branchName)
+                    handleCreateExpansion(yesClass, nextIndex, templateClass,subsequentDataClass);
+                  }else{
+                    nextNewIndex = updateIndices(nextIndex, noClass);
+                    updateSubsequentDataIndicesAndShow(nextNewIndex, subsequentDataClass);
+
+                  }
+ 
+             
+               
+              } else {
+                  $(yesClass).hide();
+                  $(noClass).show();    
+                  //Clear All Previous Expansion
+                  clearExpansion(yesClass)
+
+                  console.log("can reach no class change index")
+                  // Update indices for the 'No' branch
+                  nextIndex = updateIndices(currentQuestionIndex, noClass);
+                  // displaySubsequentData(branchName);
+                  updateSubsequentDataIndicesAndShow(nextIndex, subsequentDataClass);
+
+              
+
+              }
+              console.log("Before update subsequent data with index " + nextIndex)
+              
+              // Update indices for subsequent normal questions
+      
+          });
+      }
+      function displaySubsequentData(branchName){
+        $(`.form-group-branch-${branchName}-subsequent-data`).each(function() {
+          // Display question class only
+          $(this).find('[class*="-question"]').show();
+      })
+      }
+      function hideSubsequentData(subsequentDataClass) {
+        console.log("reach hide subsequent data");
+        console.log($(`.form-group-branch-${subsequentDataClass}-subsequent-data`));
+        $(`.form-group-branch-${subsequentDataClass}-subsequent-data`).css('display', 'none');
+     
+}
+      function getCurrentQuestionIndex(questionClass) {
+          // Find the closest parent div with the provided class and get the index from the span
+          const indexSpan = $(`${questionClass} .index-span`)
+              .text()
+              .trim(); // Get the text content and trim any extra whitespace
+
+          // Extract the number from the text (assuming it is followed by a period and a space)
+          const index = parseInt(indexSpan.split('.')[0].trim(), 10);
+
+          return index;
+      }
+
+
+      function updateSubsequentDataIndicesAndShow(startIndex, sectionClass){
+        let lastIndex = startIndex;
+        $(sectionClass + ' .form-group').each(function(index) {
+            const questionIndex = lastIndex + index + 1 ;
+            const label = $(this).find('label');
+            // const currentLabelText = label.text();
+            const spanIndex = label.find('.index-span');
+
+       
+
+            // if (!label.hasClass('updated')) {
+              spanIndex.text(questionIndex + '. ');
+              label.addClass('updated'); // Mark as updated
+            
+
+            // Update input
+            $(this).find('input').attr('id', 'q' + questionIndex).attr('name', 'q' + questionIndex);
+
+            // Update error message
+            $(this).find('.error').attr('id', 'error-message-q' + questionIndex);
+       
+
+          })
+           $(sectionClass).each(function(){
+              $(this).show()
+              $(this).find('[class*="-question"]').show();
+           })
+          // check if there is other branch 
+
+      }
+  
+     function updateIndices(startIndex, sectionClass) {
+   
+        let lastIndex = startIndex;
+        console.log("Reach update index")
+        // Select form-group elements within the specified branch, excluding templates
+        const formGroups = $(sectionClass + ' .form-group').not('.form-group-branch-experience-template .form-group');
+
+        // Check if there are no form-group elements
+        if (formGroups.length === 0) {
+            console.log(lastIndex);
+            return lastIndex;
+        }
+        formGroups.each(function(index) {
+            
+            const questionIndex = lastIndex + index + 1;
+            console.log('update index' + questionIndex)
+            const label = $(this).find('label');
+            // const currentLabelText = label.text();
+            const spanIndex = label.find('.index-span');
+
+    
+
+            // if (!label.hasClass('updated')) {
+              spanIndex.text(questionIndex + '. ');
+              label.addClass('updated'); // Mark as updated
+            
+
+            // Update input
+            $(this).find('input').attr('id', 'q' + questionIndex).attr('name', 'q' + questionIndex);
+
+            // Update error message
+            $(this).find('.error').attr('id', 'error-message-q' + questionIndex);
+        });
+
+        // Return the index of the last updated question
+        return lastIndex + $(sectionClass + ' .form-group').not('.form-group-branch-experience-template .form-group').length;
+    }
+
+  
+     
+
+  
+      // Initialize branch handlers
+      handleBranchChange('experience',true);
+      handleBranchChange('secuirty-permit',false)
+      handleBranchChange('qas',false);
+      handleBranchChange('green-card',false);
+      handleBranchChange('pmp',false);
+      handleBranchChange('certificate-electrical-worker');
+      handleBranchChange('common1',false);
+      // handleCloneForm('education', ['Tertiary', 'Secondary School', 'Others']);
+      //  // Example usage
+      const values = ["Excellent", "Good", "Fair"]
+      const data = [
+          { row: 'Reading', values: values },
+          { row: 'Spoken', values: values },
+          { row: 'Written', values: values }
+      ];
+      handleCloneForm('education', ['Tertiary', 'Secondary School', 'Others'], '.form-group-branch-certificate-electrical-worker-subsequent-data .form-group-branch-common1-question', '.form-group-branch-certificate-electrical-worker-subsequent-data .form-group-branch-common1-question');
+      handleCloneForm('qualification', ['1','2'], '.form-group-branch-certificate-electrical-worker-subsequent-data .form-group-branch-common1-question', '.form-group-branch-certificate-electrical-worker-subsequent-data .form-group-branch-common1-question');
+      generateRadioTable(data, '.form-group-branch-certificate-electrical-worker-subsequent-data .form-group-branch-common1-question');
+    });
+  
+  
+
+  </script>
+  
